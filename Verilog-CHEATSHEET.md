@@ -125,6 +125,42 @@ reg [31:0] a, b;
 a <= b;
 b <= a;
 ```
+  
+### moduleの作成
+**モジュールとは、回路を構成している部品**  
+**最初にinputとoutputで入力と出力を指定します。**  
+基本的に入出力はワイヤで行います。なお、mem[1023:0]は配列を表します。  
+
+メモリはレジスタとして値を保持していて、それをワイヤに流すという構図になっています。  
+出力のdataはワイヤなのでassignを使用していることに注意してください。  
+```
+modeule MEM(addr, data) ;
+	input [9:0] addr;
+	output [31:0] data;
+	
+	reg [31:0] mem[1023:0]; //4 Kbyte memory
+	assign data = mem[addr];
+endmodule
+```
+  
+### function文
+function文はC言語の関数に相当します。  
+**ただし、関数名と返り値の名前が一致していなくてはなりません。**  
+```
+wire [31:0] a,result;
+function [31:0] calctest;
+	input [31:0] inp;
+	calctest = inp + 1;
+endfunction
+//呼び出すとき
+assign result = calctest(a);
+```
+
+
+
+
+
+
 
 
 
