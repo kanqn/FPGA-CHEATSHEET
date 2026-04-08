@@ -155,13 +155,38 @@ endfunction
 //呼び出すとき
 assign result = calctest(a);
 ```
+  
+### if文とswitch文
+**if文やswitch文はfunctionおよびalways文中でしか使用できません。**  
 
+#### if文
+```
+function calcif;
+	input [31:0] inp;
+	if(inp == 1) begin
+		calcif = 0;
+	end else if (inp == 2) begin
+		calcif = 1;
+	end else begin
+		calcif = 2;
+	end
+endfunction
+```
+  
+#### switch文
+```
+function calccase;
+	input [31:0] inp;
+	case(inp)
+		32'd1: calccase = 0;
+		32'd2: calccase = 1;
+		defaule: calccase = 2;
+	endcase
+endfunction
+```
 
-
-
-
-
-
+参考  
+https://qiita.com/thtitech/items/8cc898dda7a10780f495  
 
 
 
