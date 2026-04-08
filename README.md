@@ -69,3 +69,27 @@ IO_LOC "led" 10;
 # clkは27MHzで動かす、という宣言
 create_clock -name clk -period 37.037 [get_ports clk]
 ```
+
+
+## Tang Nano 9Kのよく使うピン番号
+
+```
+// クロック
+IO_LOC "clk" 52;          // 27MHz オンボードクロック
+
+// LED (6個)
+IO_LOC "led[0]" 10;
+IO_LOC "led[1]" 11;
+IO_LOC "led[2]" 13;
+IO_LOC "led[3]" 14;
+IO_LOC "led[4]" 15;
+IO_LOC "led[5]" 16;
+
+// ボタン (2個)
+IO_LOC "btn[0]" 3;
+IO_LOC "btn[1]" 4;
+
+// UART
+IO_LOC "uart_tx" 17;
+IO_LOC "uart_rx" 18;
+```
